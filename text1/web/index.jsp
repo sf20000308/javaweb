@@ -11,6 +11,7 @@
     <title>$Title$</title>
   </head>
   <body>
+    <h>666</h>
   $END$
   </body>
 </html>
