@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+序号<input type="text" name="xuhao" id="xuhao" value="">
+用户<input type="text" name="yonghu" id="yonghu" value="张三">
+性别<input type="text" name="xingbie" id="xingbie" value="男">
+<button onclick="addPerson()">添加</button>
+<form>
+    <table border="1" id="biaoge">
+
+        <tr>
+            <th >序号</th>
+            <th>用户名</th>
+            <th>性别</th>
+            <th>操作</th>
+        </tr>
+        <tr>
+            <td >1</td>
+            <td>鲁全华</td>
+            <td >男</td>
+            <td><button onclick="deletePerson(this)">删除</button></td>
+        </tr>
+        <tr>
+            <td >2</td>
+            <td>李豪爽</td>
+            <td >男</td>
+            <td><button onclick="deletePerson(this)">删除</button></td>
+        </tr>
+        <tr>
+            <td >3</td>
+            <td>柏佳佳</td>
+            <td >女</td>
+            <td><button onclick="deletePerson(this)">删除</button></td>
+        </tr>
+    </table>
+</form>
+<script>
+    function deletePerson(obj) {
+        obj.parentElement.parentElement.remove();
+    }
+    function addPerson(){
+        //获取序号用户名性别值
+        var xuhaoelement= document.getElementById("xuhao");
+        var xuhao=xuhaoelement.value;
+        var yonghuelement= document.getElementById("yonghu");
+        var yonghu=yonghuelement.value;
+        var xingbieelement= document.getElementById("xingbie");
+        var xingbie=xingbieelement.value;
+        //创建一行
+        var trelement=document.createElement("tr");
+        //把信息添加行中
+        trelement.innerHTML="<td >"+xuhao+"</td>\n" +
+            "            <td>"+yonghu+"</td>\n" +
+            "            <td >"+xingbie+"</td>\n" +
+            "            <td><button onclick=\"deletePerson(this)\">删除</button></td>"
+        //获取到表格
+        var biaogeelement= document.getElementById("biaoge");
+        //把行的数据添加到表格里
+        biaogeelement.appendChild(trelement);
+        //清空表单里面的值
+        xuhao.value="";
+        yonghu.value="";
+        xingbie.value="";
+    }
+
+</script>
+</body>
+</html>
